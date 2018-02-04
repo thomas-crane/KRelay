@@ -1,4 +1,4 @@
-﻿using Lib_K_Relay.Networking.Packets;
+using Lib_K_Relay.Networking.Packets;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,7 +41,24 @@ namespace Lib_K_Relay.Utilities
         AnotherSpeedy = 1 << 28,
         Unstable = 1 << 29,
         Darkness = 1 << 30,
-        Curse = 1 << 31
+        SlowedImmune = 1 << 31,
+        DazedImmune = 1 << 32,
+        ParalyzedImmune = 1 << 33,
+        Petrified = 1 << 34,
+        PetrifiedImmune = 1 << 35,
+        PetEffectIcon = 1 << 36,
+        Curse = 1 << 37,
+        CurseImmune = 1 << 38,
+        HPBoost = 1 << 39,
+        MPBoost = 1 << 40,
+        AttBoost = 1 << 41,
+        DefBoost = 1 << 42,
+        SpdBoost = 1 << 43,
+        VitBoost = 1 << 44,
+        WisBoost = 1 << 45,
+        DexBoost = 1 << 46,
+        Silenced = 1 << 47,
+        GroundDamage = 1 << 98,
     }
 
     public enum ConditionEffectIndex
@@ -77,7 +94,24 @@ namespace Lib_K_Relay.Utilities
         AnotherSpeedy = 28,
         Unstable = 29,
         Darkness = 30,
-        Curse = 31
+        SlowedImmune = 31,
+        DazedImmune = 32,
+        ParalyzedImmune = 33,
+        Petrified = 34,
+        PetrifiedImmune = 35,
+        PetEffectIcon = 36,
+        Curse = 37,
+        CurseImmune = 38,
+        HPBoost = 39,
+        MPBoost = 40,
+        AttBoost = 41,
+        DefBoost = 42,
+        SpdBoost = 43,
+        VitBoost = 44,
+        WisBoost = 45,
+        DexBoost = 46,
+        Silenced = 47,
+        GroundDamage = 98,
     }
 
     public enum EffectType
@@ -96,12 +130,13 @@ namespace Lib_K_Relay.Utilities
         Lightning = 11, //particleSize=pos2.x
         Collapse = 12, //radius=dist(pos1,pos2)
         ConeBlast = 13, //origin=pos1, radius = pos2.x
-        Earthquake = 14,
+        Jitter = 14,
         Flash = 15, //period=pos1.x, numCycles=pos1.y
-        BeachBall = 16,
-        ElectricBolts = 17, //If a pet paralyzes a monster
-        ElectricFlashing = 18, //If a monster got paralyzed from a electric pet
-        RisingFury = 19 //If a pet is standing still (this white particles)
+        ThrowProjectile = 16,
+        Shocker = 17, //If a pet paralyzes a monster
+        Shockee = 18, //If a monster got paralyzed from a electric pet
+        RisingFury = 19, //If a pet is standing still (this white particles)
+        NovaNoAOE = 20
     }
 
     public struct ARGB
@@ -152,8 +187,8 @@ namespace Lib_K_Relay.Utilities
         BrownBoosted = 0x6ad,
         Pink = 0x506,
         PinkBoosted = 0x6ae,
-        Purple2 = 0x507,
-        Purple2Boosted = 0x6ba,
+        Purple = 0x507,
+        PurpleBoosted = 0x6ba,
         Egg = 0x508,
         EggBoosted = 0x6bb,
         Gold = 0x050E,
@@ -169,7 +204,7 @@ namespace Lib_K_Relay.Utilities
         White = 0x050C,
         WhiteBoosted = 0x0510,
     }
-    
+
     public enum Ability : uint
     {
         AttackClose = 402,
